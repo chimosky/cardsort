@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # Copyright (C) 2011, Walter Bender
 # Copyright (C) Ignacio Rodriguez <ignaciorodriguez@sugarlabs.org>
+# Copyright (C) Ignacio Rodriguez <ignaciorodriguez@sugarlabs.org> (GTK+ 3)
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -21,7 +22,6 @@ from gi.repository import Gtk
 from sugar3.graphics.radiotoolbutton import RadioToolButton
 from sugar3.graphics.toolbutton import ToolButton
 from sugar3.graphics.combobox import ComboBox
-from sugar3.graphics.toolcombobox import ToolComboBox
 
 
 def combo_factory(combo_array, toolbar, callback, cb_arg=None,
@@ -156,7 +156,7 @@ def image_factory(image, toolbar, tooltip=None):
 def spin_factory(default, min, max, callback, toolbar):
     spin_adj = Gtk.Adjustment(default, min, max, 1, 32, 0)
     spin = Gtk.SpinButton(spin_adj, 0, 0)
-    spin_id = spin.connect('value-changed', callback)
+    spin.connect('value-changed', callback)
     spin.set_numeric(True)
     spin.show()
     toolitem = Gtk.ToolItem()
